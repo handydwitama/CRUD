@@ -8,12 +8,12 @@ $umur = $_POST['umur'];
 $email = $_POST['email']; 
 $alamat = $_POST['alamat']; 
 
-$query = "INSERT INTO pendaftaran(id,nama,Umur,email,alamat) VALUES ('','$nama','$umur','$email','$alamat')"; 
+$query = "INSERT INTO username(id,nama,Umur,email,alamat) VALUES ('','$nama','$umur','$email','$alamat')"; 
 
 $data = mysqli_query($konek,$query)or die(mysqli_error()); 
 if($data) 
 	{ echo "add user berhasil..."; 
-	header("Refresh:2; url=http://handy.orange.com/crud/index.php");
+	header("Refresh:2; url=http://handy.orange.com/crud/masteruser.php");
 	}
 
 

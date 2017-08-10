@@ -10,7 +10,7 @@ include 'connect.php';
 
 $id = $_GET["id"];
 
-$query = "SELECT * FROM pendaftaran where id = '$id'";
+$query = "SELECT * FROM username where id = '$id'";
 
 $hasil=mysqli_query($konek,$query);    
 $row = mysqli_fetch_array($hasil, MYSQLI_ASSOC);
@@ -47,7 +47,7 @@ $alamat = $row['alamat'];
       <td><input id="button" type="submit" name="submit" value="Confirm"></td> 
     </tr>
     <tr>
-      <td><a href='http://handy.orange.com/crud/'>Back</a></td>
+      <td><a href='http://handy.orange.com/crud/masteruser.php'>Back</a></td>
     </tr> 
       </form> 
 </table> 

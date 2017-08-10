@@ -9,7 +9,7 @@ include 'connect.php';
 
 $id = $_GET["id"];
 
-$query = "SELECT * FROM pendaftaran where id = '$id'";
+$query = "SELECT * FROM username where id = '$id'";
 
 $hasil=mysqli_query($konek,$query);    
 $row = mysqli_fetch_array($hasil, MYSQLI_ASSOC);
@@ -44,7 +44,7 @@ $alamat = $row['alamat'];
     </tr> 
     <tr> 
       <td>
-        <button><a href='http://handy.orange.com/crud/'>Back</a></td></button>
+        <button><a href='http://handy.orange.com/crud/masteruser.php'>Back</a></td></button>
       </td> 
     </tr> 
   

@@ -1,45 +1,36 @@
-<?php include 'connect.php';
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+  <title>
+    Home
+  </title>
+</head
+<body>
 
+<div class="type-2">
+  <div>
+    <a href="http://handy.orange.com/crud/masteruser.php" class="btn btn-1">
+      <span class="txt">List User</span>
+      <span class="round"><i class="fa fa-chevron-right"></i></span>
+    </a>
+  </div>
 
-<center> 
-MENAMPILKAN DATA 
-<br>
-<br>
-<button><a href="http://handy.orange.com/crud/adduser.php">Add user</a></button>
-<table  border='1' Width='800'>  
-<tr>
-    <th> Nomor </th>
-    <th> Nama </th>
-    <th> Umur </th>
-    <th> Email </th>
-    <th> Alamat </th>
-    
-</tr>
-
-
-<?php  
-$queri="SELECT * FROM pendaftaran";
-
-$hasil=mysqli_query($konek,$queri);    
-
-
-while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
-    {
- echo " <tr>
-        <td>".$row['id']."</td>
-        <td>".$row['nama']."</td>
-        <td>".$row['Umur']."</td>
-        <td>".$row['email']."</td>
-        <td>".$row['alamat']."</td>
-        <td><a href='http://handy.orange.com/crud/viewuser.php?id=".$row['id']."'>View</a> &nbsp; 
-        <a href='http://handy.orange.com/crud/edituser.php?id=".$row['id']."'>Edit</a> &nbsp; 
-        <a href='http://handy.orange.com/crud/removeuser.php?id=".$row['id']."'>Remove</a></td>
-        </tr>";
-        
-        }
-
-?>
-</table>
-
-
+  <div>
+    <a href="http://handy.orange.com/crud/masterbarang.php" class="btn btn-2">
+      <span class="txt">List Barang</span>
+      <span class="round"><i class="fa fa-chevron-right"></i></span>
+    </a>
+  </div>
+  
+  <div>
+    <a href="http://handy.orange.com/crud/pembelian.php" class="btn btn-3">
+      <span class="txt">Mulai Pembelian</span>
+      <span class="round"><i class="fa fa-chevron-right"></i></span>
+    </a>
+  </div>
+</div>
+  
+</body>
+</html>
