@@ -2,8 +2,8 @@
 
 	require_once('connect.php');
 
-	$id_barang = $_POST['id_barang'];
-	$q="SELECT harga FROM master_barang where id_barang = '$id_barang'";
+	$nama_barang = $_POST['nama_barang'];
+	$q="SELECT harga FROM master_barang where nama_barang = '$nama_barang'";
 
       $res=mysqli_query($konek,$q);   
 

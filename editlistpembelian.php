@@ -42,7 +42,7 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
         <td><center>".$row['nama_barang']."</td>
         <td><center><input type='number' name='".$row['id_pembelian']."' min='1' max='10' step='1' value=".$row['qty']."></td>
         <td><center>".$row['jumlah']."</td>
-        <td><center><a href='http://handy.orange.com/crud/removelist.php?id=".$row['id_pembelian']."?nama=$idpembeli'>Hapus</a></td></center>
+        <td><center><a href='http://handy.orange.com/crud/removelist.php?id=".$row['id_pembelian']."&nama=$idpembeli'>Hapus</a></td></center>
         </tr>";
         $no++;
         }
