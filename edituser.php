@@ -47,10 +47,10 @@ $alamat = $row['alamat'];
       <td><input id="button" type="submit" name="submit" value="Confirm"></td> 
     </tr>
     <tr>
-      <td><a href='http://handy.orange.com/crud/masteruser.php'>Back</a></td>
+     
     </tr> 
       </form> 
 </table> 
-
+<input type="button" onclick="location.href='http://handy.orange.com/crud/masteruser.php';" value="Back" />
 </body> 
 </html>

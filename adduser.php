@@ -30,6 +30,7 @@
     </tr> 
       </form> 
 </table> 
-
+<br>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/masteruser.php';" value="Back" />
 </body> 
 </html>

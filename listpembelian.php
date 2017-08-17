@@ -6,7 +6,8 @@
 MENAMPILKAN DATA PEMBELIAN SETIAP USER
 <br>
 <br>
-<button><a href="http://handy.orange.com/crud/pembelian.php">Beli barang baru</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/pembelian.php';" value="Beli barang baru" />
+
 <br>
 <br>
 <table  border='1' Width='800'>  
@@ -48,5 +49,4 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 <br>
 
 <center> 
-
-<button><a href="http://handy.orange.com/crud/pembelian.php">Back</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/pembelian.php';" value="Back" />

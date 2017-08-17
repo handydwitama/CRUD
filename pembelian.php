@@ -3,7 +3,7 @@ $tgl = date("F j, Y");
 ?>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-<form method="POST" action="pembelian_conf.php">  
+<form id="myForm" method="POST" action="pembelian_conf.php">  
 
 Pilih User : <select name="nama" id="nama">
 
@@ -65,6 +65,11 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
 </table>
 
 <script type="text/javascript">
+
+function mySubmit() {
+    document.getElementById("myForm").submit();
+}
+
 var ajax_harga = function(event){
   var barang = $(event);
   var harga = barang.parent().parent().find(".h");
@@ -116,8 +121,6 @@ var ajax_harga = function(event){
  
   
 </script>
-<br>
-  <input type="submit" name="submit" value="Confirmasi Pembelian">  
 </form>
 
 <button id="add" onclick="addRow();">+</button>
@@ -126,10 +129,12 @@ var ajax_harga = function(event){
 <br>
 <br>
 
-
-
-
-<button><a href="http://handy.orange.com/crud/listpembelian.php">Lihat Transaksi</a></button>
+<input type="button" onclick="mySubmit()" value="Confirmasi Pembelian">  
 <br>
 <br>
-<button><a href="http://handy.orange.com/crud/index.php">Back</a></button>
+
+<input type="button" onclick="location.href='http://handy.orange.com/crud/listpembelian.php';" value="Lihat Transaksi" />
+<br>
+<br>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/index.php';" value="Back" />
+

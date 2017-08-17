@@ -55,5 +55,4 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
   <br><br>
 
 </form>
-
-<button><a href="http://handy.orange.com/crud/listpembelian.php">Back</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/listpembelian.php';" value="Back" />

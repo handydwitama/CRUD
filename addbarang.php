@@ -13,7 +13,7 @@
       <td> <input type="text" name="namabarang"></td> 
     </tr> 
     <tr> 
-      <td>Quantity</td>
+      <td>Stock</td>
       <td> <input type="text" name="qty"></td> 
     </tr> 
     <tr> 
@@ -26,7 +26,8 @@
       <td><input id="button" type="submit" name="submit" value="Add Barang"></td> 
     </tr> 
       </form> 
-</table> 
-
+</table>
+<br> 
+<input type="button" onclick="location.href='http://handy.orange.com/crud/masterbarang.php';" value="Back" />
 </body> 
 </html>

@@ -44,12 +44,12 @@ $alamat = $row['alamat'];
     </tr> 
     <tr> 
       <td>
-        <button><a href='http://handy.orange.com/crud/masteruser.php'>Back</a></td></button>
+       
       </td> 
     </tr> 
   
       </form> 
 </table> 
-
+<input type="button" onclick="location.href='http://handy.orange.com/crud/masteruser.php';" value="Back" />
 </body> 
 </html>

@@ -7,7 +7,7 @@ $namabarang = $_POST['namabarang'];
 $qty = $_POST['qty']; 
 $harga = $_POST['harga']; 
 
-$query = "UPDATE master_barang SET qty='$qty', harga='$harga' WHERE master_barang.id_barang = '$id'"; 
+$query = "UPDATE master_barang SET stock='$qty', harga='$harga' WHERE master_barang.id_barang = '$id'"; 
 
 $data = mysqli_query($konek,$query)or die(mysqli_error()); 
 if($data) 

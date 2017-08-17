@@ -16,14 +16,14 @@ $hasil=mysqli_query($konek,$query);
 $row = mysqli_fetch_array($hasil, MYSQLI_ASSOC);
 
 $namabarang = $row['nama_barang'];
-$qty = $row['qty'];
+$qty = $row['stock'];
 $harga = $row['harga'];
 
 
 
 ?>
 
-  Edit User
+  Edit Barang
   <table border="0"> 
     <tr> 
       <form method="POST" action="editbarang_conf.php?idbarang=<?php echo $id;?>"> 
@@ -31,7 +31,7 @@ $harga = $row['harga'];
       <td> <input type="text" name="namabarang" value="<?php echo $namabarang;?>" readonly ></td> 
     </tr> 
     <tr> 
-      <td>Quantity</td>
+      <td>Stock</td>
       <td> <input type="text" name="qty" value="<?php echo $qty;?>"></td> 
     </tr> 
     <tr> 
@@ -43,11 +43,10 @@ $harga = $row['harga'];
     <tr> 
       <td><input id="button" type="submit" name="submit" value="Confirm"></td> 
     </tr>
-    <tr>
-      <td><a href='http://handy.orange.com/crud/masterbarang.php'>Back</a></td>
-    </tr> 
+    
       </form> 
 </table> 
-
+<br>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/masterbarang.php';" value="Back" />
 </body> 
 </html>

@@ -6,7 +6,8 @@
 MENAMPILKAN DATA 
 <br>
 <br>
-<button><a href="http://handy.orange.com/crud/adduser.php">Add user</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/adduser.php';" value="Add user" />
+
 <table  border='1' Width='800'>  
 <tr>
     <th> Nomor </th>
@@ -14,6 +15,7 @@ MENAMPILKAN DATA
     <th> Umur </th>
     <th> Email </th>
     <th> Alamat </th>
+    <th> Action </th>
     
 </tr>
 
@@ -27,12 +29,12 @@ $no = 1;
 while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
     {
  echo " <tr>
-        <td>".$no."</td>
-        <td>".$row['nama']."</td>
-        <td>".$row['Umur']."</td>
-        <td>".$row['email']."</td>
-        <td>".$row['alamat']."</td>
-        <td><a href='http://handy.orange.com/crud/viewuser.php?id=".$row['id']."'>View</a> &nbsp; 
+        <td align='center'>".$no."</td>
+        <td align='center'>".$row['nama']."</td>
+        <td align='center'>".$row['Umur']."</td>
+        <td align='center'>".$row['email']."</td>
+        <td align='center'>".$row['alamat']."</td>
+        <td align='center'><a href='http://handy.orange.com/crud/viewuser.php?id=".$row['id']."'>View</a> &nbsp; 
         <a href='http://handy.orange.com/crud/edituser.php?id=".$row['id']."'>Edit</a> &nbsp; 
         <a href='http://handy.orange.com/crud/removeuser.php?id=".$row['id']."'>Remove</a></td>
         </tr>";
@@ -46,5 +48,4 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 <br>
 
 <center> 
-
-<button><a href="http://handy.orange.com/crud/index.php">Back</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/index.php';" value="Back" />

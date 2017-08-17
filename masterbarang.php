@@ -3,17 +3,18 @@
 
 
 <center> 
-MENAMPILKAN DATA 
+MENAMPILKAN DATA BARANG
 <br>
 <br>
-<button><a href="http://handy.orange.com/crud/addbarang.php">Add barang</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/addbarang.php';" value="Add barang" />
+
 <table  border='1' Width='800'>  
 <tr>
     <th> ID barang </th>
     <th> Nama Barang </th>
-    <th> Quantity </th>
+    <th> Stock </th>
     <th> Harga </th>
-   
+    <th> Action </th>
     
 </tr>
 
@@ -27,12 +28,12 @@ $no = 1;
 while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
     {
  echo " <tr>
-        <td>".$no."</td>
-        <td>".$row['nama_barang']."</td>
-        <td>".$row['qty']."</td>
-        <td>".$row['harga']."</td>
+        <td align='center'>".$no."</td>
+        <td align='center'>".$row['nama_barang']."</td>
+        <td align='center'>".$row['stock']."</td>
+        <td align='center'>".$row['harga']."</td>
         
-        <td> 
+        <td align='center'> 
         <a href='http://handy.orange.com/crud/editbarang.php?idbarang=".$row['id_barang']."'>Edit</a> &nbsp; 
         <a href='http://handy.orange.com/crud/removebarang.php?idbarang=".$row['id_barang']."'>Remove</a></td>
         </tr>";
@@ -46,5 +47,4 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 <br>
 
 <center> 
-
-<button><a href="http://handy.orange.com/crud/index.php">Back</a></button>
+<input type="button" onclick="location.href='http://handy.orange.com/crud/index.php';" value="Back" />
