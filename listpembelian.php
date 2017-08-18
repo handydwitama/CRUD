@@ -22,7 +22,9 @@ MENAMPILKAN DATA PEMBELIAN SETIAP USER
 
 
 <?php  
-$queri="SELECT id_pembelian,nama,tanggal FROM list_pembelian GROUP BY nama ORDER BY tanggal ASC";
+$queri="SELECT list_pembelian.id_pembelian, username.nama, list_pembelian.tanggal 
+        FROM list_pembelian INNER JOIN username ON list_pembelian.id_user = username.id
+        GROUP BY username.nama ORDER BY list_pembelian.tanggal ASC";
 
 $hasil=mysqli_query($konek,$queri);    
 $no = 1;

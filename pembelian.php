@@ -25,12 +25,13 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
 
 
 
-  <table id="theTable" border='1' Width='400'>  
+  <table id="theTable" border='1' Width='600'>  
 <tr>
     <th> Nomor </th>
     <th> Nama Barang </th>
     <th> Harga Satuan</th>
     <th> Quantity </th>
+    <th> Jumlah Harga</th>
 
 </tr>
 
@@ -53,26 +54,53 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
     <td>
       <p id="h" class="h" align="center">10000</p>
     </td>
+    <td align="center">
+     
+      <select id="quantity" name="quantity[]" class="q" onchange="ajax_jumlah(this);">
+      <?php 
+        for ($i=1; $i<11 ; $i++) { 
+          echo "<option value='".$i."'>".$i."</option>";
+        }
+      ?>
+      </select>     
+    </td>
     <td>
-      <center>
-      <input type="number" name="quantity[]" min="1" max="10" value="1">
-      </center>
+      <p id ="j[]" class="j" align="center">12345</p>
     </td>
 
 
+</tr>
+
+<tr>
+<td colspan="4" align="center"> Total Pembelian : </td>
+<td>
+  <p align="center" id="sum" class="sum"></p>
+</td>
 </tr>
 
 </table>
 
 <script type="text/javascript">
 
+
+
+var ajax_jumlah = function(event){
+  var qty = $(event);
+  var hrg = qty.parent().parent().find(".h");
+  var jml = qty.parent().parent().find(".j");
+  var hrg1 = hrg.html();
+  var qty1 = qty.val();
+  jml.html(hrg1 * qty1);
+  total_harga();
+}
+
 function mySubmit() {
     document.getElementById("myForm").submit();
 }
-
+  
 var ajax_harga = function(event){
-  var barang = $(event);
-  var harga = barang.parent().parent().find(".h");
+var barang = $(event);
+var harga = barang.parent().parent().find(".h");
 
   $.ajax({
         url: "ajax_harga.php",
@@ -83,13 +111,35 @@ var ajax_harga = function(event){
           },
           dataType: "json",
         success: function(data) {
-       harga.html(data.harga);
+        harga.html(data.harga);
+        var jml = barang.parent().parent().find(".j");
+        jml.html(harga.html());
+        var qt = barang.parent().parent().find(".q");
+        qt.val(1);
         }
       })
-
+  
   console.log(harga.html());
 
 }
+
+function total_harga(){
+  var total = $(".sum");
+  var jh = document.getElementById("j[]").innerHTML;
+  var jhm = $(".j");
+  var arr1 = $.makeArray(jhm);
+  var arr = jQuery.makeArray(jh);
+  var tot = Number(arr.reduce(add, 0));
+
+  function add(a, b) {
+    return a + b;
+  }
+
+ // var sum=0; var i=arr.length; while(i--) sum += Number(arr[i]);
+  total.html(Number(arr1[0]));
+}
+
+
   var a = 0;
   
   function getTemplateRow(){
@@ -107,7 +157,7 @@ var ajax_harga = function(event){
     var r = rows[rows.length-1];
     r.parentNode.insertBefore(getTemplateRow(), r);
     document.getElementsByClassName("nom")[a].innerHTML = a+1;
-    document.getElementsByClassName("barang")[(a-1)].value = document.getElementsByClassName("barang")[a].value;
+    
   
   }
 
