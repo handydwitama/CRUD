@@ -135,8 +135,8 @@ function total_harga(){
     return a + b;
   }
 
- // var sum=0; var i=arr.length; while(i--) sum += Number(arr[i]);
-  total.html(Number(arr1[0]));
+ var sum=0; var i=5; while(i--) sum += Number(arr[i]);
+  console.log(arr[0]);
 }
 
 
@@ -183,8 +183,7 @@ function total_harga(){
 <br>
 <br>
 
-<input type="button" onclick="location.href='http://handy.orange.com/crud/listpembelian.php';" value="Lihat Transaksi" />
-<br>
-<br>
+
+
 <input type="button" onclick="location.href='http://handy.orange.com/crud/index.php';" value="Back" />
 

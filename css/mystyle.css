@@ -3,7 +3,7 @@ body {
   text-align: center;
 }
 body > div {
-  width: 33%;
+  width: 40%;
   float: left;
 }
 body > div > div {
@@ -31,6 +31,12 @@ body > div > div {
   background-color: #737478;
 }
 
+.btn-4 {
+  background-color: #ff4d4d;
+}
+.btn-4 .round {
+  background-color: #ff8080;
+}
 a {
   text-decoration: none;
   -moz-border-radius: 30px;

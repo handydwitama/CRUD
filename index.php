@@ -6,7 +6,7 @@
   <title>
     Home
   </title>
-</head
+</head>
 <body>
 
 <div class="type-2">
@@ -27,6 +27,12 @@
   <div>
     <a href="http://handy.orange.com/crud/pembelian.php" class="btn btn-3">
       <span class="txt">Mulai Pembelian</span>
+      <span class="round"><i class="fa fa-chevron-right"></i></span>
+    </a>
+  </div>
+  <div>
+    <a href="http://handy.orange.com/crud/laporan.php" class="btn btn-4">
+      <span class="txt">Laporan Pembelian</span>
       <span class="round"><i class="fa fa-chevron-right"></i></span>
     </a>
   </div>

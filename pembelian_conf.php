@@ -47,7 +47,7 @@ foreach ($barang as $value) {
 }
 
 echo "Berhasil melakukan pembelian..."; 
-header("Refresh:2; url=http://handy.orange.com/crud/listpembelian.php");
+header("Refresh:2; url=http://handy.orange.com/crud/pembelian.php");
 
 
  
