@@ -56,7 +56,7 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
     </td>
     <td align="center">
      
-      <select id="quantity" name="quantity[]" class="q" onchange="ajax_jumlah(this);">
+      <select id="quantity" name="quantity[]" class="q" onchange="get_jumlah(this);">
       <?php 
         for ($i=1; $i<11 ; $i++) { 
           echo "<option value='".$i."'>".$i."</option>";
@@ -65,7 +65,7 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
       </select>     
     </td>
     <td>
-      <p id ="j[]" class="j" align="center">12345</p>
+      <p id ="j[]" class="j" align="center">10000</p>
     </td>
 
 
@@ -74,7 +74,7 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
 <tr>
 <td colspan="4" align="center"> Total Pembelian : </td>
 <td>
-  <p align="center" id="sum" class="sum"></p>
+  <p align="center" id="sum" class="sum" value=""></p>
 </td>
 </tr>
 
@@ -84,7 +84,7 @@ while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
 
 
 
-var ajax_jumlah = function(event){
+var get_jumlah = function(event){
   var qty = $(event);
   var hrg = qty.parent().parent().find(".h");
   var jml = qty.parent().parent().find(".j");
@@ -92,6 +92,8 @@ var ajax_jumlah = function(event){
   var qty1 = qty.val();
   jml.html(hrg1 * qty1);
   total_harga();
+  
+
 }
 
 function mySubmit() {
@@ -116,27 +118,26 @@ var harga = barang.parent().parent().find(".h");
         jml.html(harga.html());
         var qt = barang.parent().parent().find(".q");
         qt.val(1);
+        total_harga();
         }
       })
   
-  console.log(harga.html());
 
 }
 
 function total_harga(){
-  var total = $(".sum");
-  var jh = document.getElementById("j[]").innerHTML;
-  var jhm = $(".j");
-  var arr1 = $.makeArray(jhm);
-  var arr = jQuery.makeArray(jh);
-  var tot = Number(arr.reduce(add, 0));
-
-  function add(a, b) {
-    return a + b;
+ var tot = 0;
+  table = document.getElementById("theTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length-1; i++){
+    td = tr[i].getElementsByTagName("td")[4];
+    p = td.getElementsByTagName("p")[0];
+    if (td){
+      
+      tot = tot + parseInt(p.innerHTML);
+    }       
   }
-
- var sum=0; var i=5; while(i--) sum += Number(arr[i]);
-  console.log(arr[0]);
+  document.getElementById("sum").innerHTML = tot;
 }
 
 
@@ -157,7 +158,7 @@ function total_harga(){
     var r = rows[rows.length-1];
     r.parentNode.insertBefore(getTemplateRow(), r);
     document.getElementsByClassName("nom")[a].innerHTML = a+1;
-    
+    total_harga();
   
   }
 
@@ -165,7 +166,7 @@ function total_harga(){
     var i=row.parentNode.parentNode.rowIndex;
     document.getElementById('theTable').deleteRow(a+1);
     a--;
-
+    total_harga();
   }
 
  
