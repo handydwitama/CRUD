@@ -1,21 +1,33 @@
   <?php include 'connect.php';
 
 $idtrans = $_GET['id'];
+
+$qu = "SELECT list_pembelian.id_pembelian, list_pembelian.tanggal, username.nama, master_barang.nama_barang, 
+      list_pembelian.qty, list_pembelian.jumlah
+      FROM ((list_pembelian INNER JOIN username ON list_pembelian.id_user = username.id)
+      INNER JOIN master_barang ON list_pembelian.id_barang = master_barang.id_barang)
+      WHERE list_pembelian.id_pembelian = '$idtrans' ORDER BY list_pembelian.tanggal ASC ";
+$hasil1=mysqli_query($konek,$qu); 
+$hasil=mysqli_query($konek,$qu); 
+while ($row1 = mysqli_fetch_array($hasil1, MYSQLI_ASSOC))
+    {
+      $tgl = $row1['tanggal'];
+      $nm = $row1['nama'];
+    }
 ?>
 
 
 <center> 
-MENAMPILKAN DATA TRANSAKSI : <?php echo $idtrans; ?>
+MENAMPILKAN DATA TRANSAKSI :
   <br>
   <br>
+  <p> <?php echo "ID Transaksi = ".$idtrans."<br>User = ".$nm."<br>Tanggal = ".$tgl ; ?></p>
   <br>
 
 
   <table border='1' Width='800'>  
 <tr>
     <th> Nomor </th>
-    <th style="width:20%"> Tanggal </th>
-    <th> User </th>
     <th> Nama Barang </th>
     <th> Quantity </th>
     <th> Total Belanja </th>
@@ -29,19 +41,12 @@ MENAMPILKAN DATA TRANSAKSI : <?php echo $idtrans; ?>
 </script>
 <?php  
 $no = 1;
-$qu = "SELECT list_pembelian.id_pembelian, list_pembelian.tanggal, username.nama, master_barang.nama_barang, 
-      list_pembelian.qty, list_pembelian.jumlah
-      FROM ((list_pembelian INNER JOIN username ON list_pembelian.id_user = username.id)
-      INNER JOIN master_barang ON list_pembelian.id_barang = master_barang.id_barang)
-      WHERE list_pembelian.id_pembelian = '$idtrans' ORDER BY list_pembelian.tanggal ASC ";
-$hasil=mysqli_query($konek,$qu);    
+   
 while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
     {
       
  echo " <tr>
         <td><center>".$no."</center></td>
-        <td><center>".$row['tanggal']."</td>
-        <td><center>".$row['nama']."</td>
         <td><center>".$row['nama_barang']."</td>
         <td><center><input type='number' id='num[]' name='".$row['nama_barang']."' min='1' max='10' step='1' value=".$row['qty']."></td>
         <td><center>".$row['jumlah']."</td>

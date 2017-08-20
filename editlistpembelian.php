@@ -15,7 +15,7 @@ MENAMPILKAN DATA PEMBELIAN USER : <?php echo $idpembeli; ?>
 <tr>
     <th> ID Transaksi </th>
     <th style="width:20%"> Tanggal </th>
-    <th> User </th>
+    
     <th> Nama Barang </th>
     <th> Quantity </th>
     <th> Total Belanja </th>
@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
  echo " <tr>
         <td align='center'>".$row['id_pembelian']."</td>
         <td align='center'>".$row['tanggal']."</td>
-        <td align='center'>".$row['nama']."</td>
+        
         <td align='center'>".$row['nama_barang']."</td>
         <td align='center'><input type='number' id='num[]' name='".$row['nama_barang']."' min='1' max='10' step='1' value=".$row['qty']."></td>
         <td align='center'>".$row['jumlah']."</td>
