@@ -61,7 +61,11 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 
 ?>
 </table>
-  
+  <br><br>
+  <?php
+echo "<a href='http://handy.orange.com/crud/printpdf.php?id=".$idtrans."'>Print PDF</a>";
+
+?>
   <br><br>
 
 

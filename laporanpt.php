@@ -44,16 +44,7 @@
   </script>
 </head>
 
-<script type="text/javascript">
-    function searchUser(){
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("mySearch");
-        filter = input.value.toUpperCase();
-        
 
-    }
-
-</script>
 
 <center> 
 MENAMPILKAN DATA PEMBELIAN SETIAP TRANSAKSI 
@@ -82,7 +73,7 @@ $queri="SELECT list_pembelian.id_pembelian, username.nama, list_pembelian.tangga
         FROM list_pembelian INNER JOIN username ON list_pembelian.id_user = username.id
         GROUP BY list_pembelian.id_pembelian ORDER BY list_pembelian.id_pembelian ASC";
 
-$hasil=mysqli_query($konek,$queri);    
+$hasil=mysqli_query($konek,$queri);  
 $no = 1;
 
 while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
@@ -107,4 +98,8 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 <br>
 
 <center> 
+
+<br>
+<br>
+
 <input type="button" onclick="location.href='http://handy.orange.com/crud/index.php';" value="Back" />

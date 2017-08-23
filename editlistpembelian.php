@@ -58,7 +58,11 @@ while ($row = mysqli_fetch_array($hasil, MYSQLI_ASSOC))
 </table>
   
   <br><br>
+<?php
+echo "<a href='http://handy.orange.com/crud/printpdf1.php?nama=".$idpembeli."'>Print PDF</a>";
 
-
+?>
+<br>
+<br>
 
 <input type="button" onclick="location.href='http://handy.orange.com/crud/listpembelian.php';" value="Back" />
